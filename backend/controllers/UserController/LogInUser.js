@@ -6,7 +6,7 @@ import dotenv from "dotenv";
 import { CustomError } from "../../utills/CustumError.js";
 dotenv.config();
 const secretkey = process.env.JWT_KEY;
-
+// ✅
 export const LogInUser = asyncErrorHandler(async (req, res, next) => {
   const { email, password } = req.body;
 
@@ -20,7 +20,7 @@ export const LogInUser = asyncErrorHandler(async (req, res, next) => {
           if (err) {
             console.log(err.message);
           } else {
-            res.status(201).json({ data: check, token: token });
+            res.status(201).json({status:true, data: check, token: token });
           }
         });
       } else {
